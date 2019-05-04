@@ -4,9 +4,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./components/App"
 import "./index.css";
+import configureStore from "./react/configurestore";
+import { Provider as ReduxProvider } from "react-redux";
  
+const store = configureStore();
 
-
-render(<Router>
+render(<ReduxProvider store={store}>
+       <Router>
           <App />
-       </Router>, document.getElementById("app"));
+       </Router>
+       </ReduxProvider>, document.getElementById("app"));
